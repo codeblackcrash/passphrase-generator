@@ -1,35 +1,21 @@
 ﻿using System;
 
-namespace Passphrase
+namespace codeblackcrash.Security.Passphrase
 {
     class Program
     {
         static void Main(string[] args)
         {
-            PhraseHandler passphrase = new PhraseHandler();
-            
-            Console.Write("Desired passphrase length: ");
+            Console.Title = "Passphrase Generator";
 
-            var phraseLength = Console.ReadLine();
-            int wordCount;
+            Phrase passphrase = new();
 
-            while (string.IsNullOrEmpty(phraseLength))
-            {
-                Console.WriteLine("Input cannot be null or empty.");
-                Console.WriteLine("Enter the desired passphrase length: ");
+            string result = passphrase.Generate();
 
-                phraseLength = Console.ReadLine();
-            }
-
-            while (!int.TryParse(phraseLength, out wordCount))
-            {
-                Console.WriteLine("Incorrect input- please enter a number.");
-
-                phraseLength = Console.ReadLine();
-            }
-
-            Console.WriteLine(passphrase.New(wordCount));
-
+            Console.WriteLine("Stuff needs to go here.");
+            Console.WriteLine($"\nYour passphrase is:  {result}");
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey(true);
         }
     }
 }
